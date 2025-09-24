@@ -17,7 +17,13 @@ public class BookData{
     String status;
     String datePublished;
     String author;
+    String publisher;
+    String description;
+    String coverImgUrl;
+
+    int quantityStock;
     Double price;
+    Double rating;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
