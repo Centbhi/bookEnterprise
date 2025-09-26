@@ -4,8 +4,8 @@ import com.hizon.model.Status;
 
 public interface StatusService {
     List<Status> readAll() throws Exception;
-    void create(Status status) throws Exception;
+    Status create(Status status) throws Exception;
     Status read(Integer id) throws Exception;
-    void update(Status status) throws Exception;
+    Status update(int id,Status status) throws Exception;
     void delete(Integer id) throws Exception;
 }
