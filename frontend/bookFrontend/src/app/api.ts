@@ -38,7 +38,7 @@ export class ApiService{
   }
 
   updateBook(id:number,book:Book) : Observable<Book> {
-    return this.http.put<Book>(`/api/book/{id}`,book);
+    return this.http.put<Book>(`/api/book/${id}`,book);
   }
 
   deleteBook(id:number) : Observable<void>{
