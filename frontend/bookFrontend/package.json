@@ -4,10 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:bookFrontend": "node dist/bookFrontend/server/server.mjs"
+    "serve:ssr:bookFrontend": "node dist/bookFrontend/server/server.mjs",
+    "startBE": "mvn -f ../../backend/implementations/pom.xml spring-boot:run"
   },
   "prettier": {
     "printWidth": 100,
@@ -37,7 +35,7 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular/build": "^20.3.3",
+    "@angular/build": "^20.1.6",
     "@angular/cli": "^20.3.3",
     "@angular/compiler-cli": "^20.3.0",
     "@types/express": "^5.0.1",

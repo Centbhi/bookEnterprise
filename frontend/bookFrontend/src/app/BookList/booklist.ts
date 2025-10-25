@@ -3,13 +3,14 @@ import { ApiService, Book } from '../api';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-testing-comp',
+  selector: 'app-booklist',
   imports: [CommonModule],
   standalone: true,
-  templateUrl: './testing-comp.html',
-  styleUrl: './testing-comp.css'
+  templateUrl: './booklist.html',
+  styleUrl: './booklist.css'
 })
-export class TestingComp implements OnInit{
+
+export class BookList implements OnInit{
   books: Book[] = [];
 
   constructor (private api:ApiService) {}
