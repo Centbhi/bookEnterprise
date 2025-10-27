@@ -7,12 +7,11 @@ import { Header } from './header/header';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,BookList,Header
+    RouterOutlet,Header
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 
 export class App {
-  protected readonly title = signal('bookFrontend');
 }
