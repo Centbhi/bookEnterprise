@@ -1,7 +1,8 @@
 package com.hizon.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.hizon.entity.UserData;
 
-import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<UserData,Integer>{}
+public interface UserRepository extends JpaRepository<UserData,Integer>{}
     

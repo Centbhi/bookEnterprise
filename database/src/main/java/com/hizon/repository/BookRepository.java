@@ -1,8 +1,9 @@
 package com.hizon.repository;
 import com.hizon.entity.BookData;
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface BookRepository extends CrudRepository<BookData,Integer> {
+public interface BookRepository extends JpaRepository<BookData,Integer> {
     List<BookData> findByGenre(String genre);
 }

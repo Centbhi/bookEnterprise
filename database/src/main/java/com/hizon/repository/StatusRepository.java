@@ -1,8 +1,9 @@
 package com.hizon.repository;
-import com.hizon.entity.StatusData;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StatusRepository extends CrudRepository<StatusData,Integer>{
+import com.hizon.entity.StatusData;
+
+public interface StatusRepository extends JpaRepository<StatusData,Integer>{
 
 }
     

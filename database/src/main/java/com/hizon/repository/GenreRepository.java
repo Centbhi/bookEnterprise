@@ -1,8 +1,9 @@
 package com.hizon.repository;
-import com.hizon.entity.GenreData;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface GenreRepository extends CrudRepository<GenreData,Integer>{
+import com.hizon.entity.GenreData;
+
+public interface GenreRepository extends JpaRepository<GenreData,Integer>{
 
 }
     
