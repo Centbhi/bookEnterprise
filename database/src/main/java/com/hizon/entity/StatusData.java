@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 @Table(name = "Status_data")
 public class StatusData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     String status;

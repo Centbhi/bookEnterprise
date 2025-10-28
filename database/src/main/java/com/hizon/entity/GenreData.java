@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 @Table(name = "Genre_data")
 public class GenreData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     String genre;
