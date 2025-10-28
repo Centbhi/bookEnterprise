@@ -3,7 +3,6 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   font-family: 'Segoe UI', Roboto, sans-serif;
-  background: radial-gradient(circle at top left, #1e2540, #111729 60%);
   color: #f1e9da;
 }
 
@@ -74,10 +73,6 @@ p {
   color: #e0d9cc;
 }
 
-strong {
-  color: #f6e9c0;
-}
-
 .book-list {
   list-style: none;
   padding: 0;
@@ -91,7 +86,6 @@ strong {
   padding: 1rem 1.2rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
   background: rgba(255,255,255,0.08);
   transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
 }
@@ -99,7 +93,6 @@ strong {
 .book-card:hover {
   transform: translateY(-3px);
   background: rgba(255,255,255,0.12);
-  box-shadow: 0 4px 20px rgba(255,222,125,0.15);
 }
 
 .book-cover img {
@@ -107,10 +100,6 @@ strong {
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
-}
-
-.book-details {
-  flex: 1;
 }
 
 .book-details h3 {
@@ -157,16 +146,10 @@ strong {
   -webkit-text-fill-color: transparent;
 }
 
-.numeric {
-  font-size: 0.9rem;
-  color: #bfb9a9;
-}
-
 .footer {
   text-align: center;
   padding: 25px;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   color: #cfc7b2;
   border-top: 1px solid rgba(255,255,255,0.1);
-  margin-top: 40px;
 }

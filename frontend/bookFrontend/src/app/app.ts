@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BookList } from './BookList/booklist';
 import { Header } from './header/header';
 
 @Component({

@@ -8,5 +8,6 @@ public class User {
     private int id;
     private String name;
     private String password;
+    private boolean isAdmin;
     private List<Book> books;
 }

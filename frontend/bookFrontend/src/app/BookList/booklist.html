@@ -24,7 +24,7 @@
             <p class="rating" *ngIf="book.rating !== undefined">
                 <strong>Rating:</strong>
                 <span class="stars" [style.--rating]="book.rating || 0"></span>
-                <span class="numeric">({{ book.rating.toFixed(1) || '0.0' }})</span>
+                <span>({{ book.rating.toFixed(1) || '0.0' }})</span>
             </p>
 
             <p><strong>Price:</strong> ₱{{ book.price }}</p>

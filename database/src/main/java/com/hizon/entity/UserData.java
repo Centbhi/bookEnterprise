@@ -16,6 +16,7 @@ public class UserData {
 
     String name;
     String password;
+    boolean isAdmin;
     
     @OneToMany(mappedBy = "userData", cascade = CascadeType.ALL)
     List<BookData> books;
