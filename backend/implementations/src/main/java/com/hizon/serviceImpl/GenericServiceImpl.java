@@ -3,13 +3,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Service;
 import com.hizon.service.GenericService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Service
-public class GenericServiceImpl<ModelData,Model> implements GenericService<Model>{
+public abstract class GenericServiceImpl<ModelData,Model> implements GenericService<Model>{
     
     private final JpaRepository<ModelData, Integer> repo;
     private final ModelMapper mapper;

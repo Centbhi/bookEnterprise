@@ -18,8 +18,7 @@ public class UserData {
     String password;
     boolean isAdmin;
     
-    @OneToMany(mappedBy = "userData", cascade = CascadeType.ALL)
-    List<BookData> books;
+    // List<BookData> books;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
