@@ -1,0 +1,27 @@
+package com.hizon.entity;
+import lombok.Data;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.annotations.UpdateTimestamp;
+import jakarta.persistence.*;
+
+@Data
+@Entity
+@Table(name = "User_data")
+public class UserData {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    int id;
+
+    String name;
+    String password;
+    
+    @OneToMany(mappedBy = "userData", cascade = CascadeType.ALL)
+    List<BookData> books;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    Date lastUpdated;
+
+}
