@@ -5,46 +5,41 @@
     </div>
 </div>
 
-<body>
-    <main class="container">
-        <h2 class="section-title">Featured Books</h2>
+<main class="container">
+    <h2 class="section-title">Featured Books</h2>
 
-        <ul class="book-list">
-        <li *ngFor="let book of books" class="book-card">
+    <ul class="book-list">
+    @for (book of books; track book.id){
+        <li class="book-card">
             <div class="book-cover">
                 <img src = "assets/bg.jpg"/>
             </div>
 
             <div class="book-details">
-            <h3 class="book-title">{{ book.title }}</h3>
-            <p><strong>Author:</strong> {{ book.author }}</p>
-            <p><strong>Genre:</strong> {{ book.genre }}</p>
-            <p><strong>Description:</strong> {{ book.description }}</p>
+                <h3 class="book-title">{{ book.title }}</h3>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Genre:</strong> {{ book.genre }}</p>
+                <p><strong>Description:</strong> {{ book.description }}</p>
 
-            <p class="rating" *ngIf="book.rating !== undefined">
-                <strong>Rating:</strong>
-                <span class="stars" [style.--rating]="book.rating || 0"></span>
-                <span>({{ book.rating.toFixed(1) || '0.0' }})</span>
-            </p>
+                <p class="rating" *ngIf="book.rating !== undefined">
+                    <strong>Rating:</strong>
+                    <span class="stars" [style.--rating]="book.rating || 0"></span>
+                    <span>({{ book.rating.toFixed(1) || '0.0' }})</span>
+                </p>
 
-            <p><strong>Price:</strong> ₱{{ book.price }}</p>
-            <p><strong>Status:</strong> {{ book.status }}</p>
-            <p><strong>In Stock:</strong> {{ book.quantityStock }}</p>
-            <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+                <p><strong>Price:</strong> ₱{{ book.price }}</p>
+                <p><strong>Status:</strong> {{ book.status }}</p>
+                <p><strong>In Stock:</strong> {{ book.quantityStock }}</p>
+                <p><strong>Publisher:</strong> {{ book.publisher }}</p>
             </div>
-
             <div class="book-actions">
-            <button style="background-color:#ffde7d;color:#111729;">Add to Cart</button>
-            <button style="background-color:#b85042;color:#f1e9da;">Remove</button>
-            <button style="background-color:#3a4f7a;color:#f1e9da;">Edit</button>
-
+                <button style="background-color:#ffde7d;color:#111729;">Add to Cart</button>
+                <button style="background-color:#b85042;color:#f1e9da;">Remove</button>
+                <button style="background-color:#3a4f7a;color:#f1e9da;">Edit</button>
             </div>
         </li>
-        </ul>
-    </main>
-</body>
+    }
+    </ul>
+</main>
 
-<footer class="footer">
-    <p>© 2025 The Evening Pages — Crafted for those who read past dusk</p>
-</footer>
 
