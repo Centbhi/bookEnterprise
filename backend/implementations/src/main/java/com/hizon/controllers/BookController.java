@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/book")
 public class BookController extends GenericController<Book>{
-    public BookController(BookService bookService){
-        super(bookService);
+    public BookController(BookService service){
+        super(service);
     }
 }
