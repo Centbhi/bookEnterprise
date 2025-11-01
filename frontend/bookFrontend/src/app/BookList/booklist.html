@@ -11,90 +11,73 @@
     <ul class="book-list">
     @for (book of books; track book.id){
         <li class="book-card">
+
             <div class="book-cover">
                 <img src = "assets/bg.jpg"/>
             </div>
 
-            <div class="book-details">
+            <ng-container *ngIf = "book.isEditing; else viewBook">
+                <form class="book-details" (ngSubmit)="updateBook(book)">
+
                     <h3 class="book-title">
-                    <input  *ngIf = "book.isEditing; else viewTitle"
-                            [(ngModel)]="book.title"
-                            (keydown.enter)="updateBook(book)" />
-                    <ng-template #viewTitle> {{book.title}} </ng-template>
+                    <input [(ngModel)]="book.title" name="title" required />
                     </h3>
 
-                <p class="rating" *ngIf="book.rating !== undefined">
-                <input
-                    *ngIf="book.isEditing; else viewRating"
-                    [(ngModel)]="book.rating"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewRating>
-                    <span class="stars" [style.--rating]="book.rating || 0"></span>
-                    <span>({{ book.rating.toFixed(1) || '0.0' }})</span>
-                </ng-template>
-                </p>
+                    <p class="rating" *ngIf="book.rating !== undefined">
+                    <input type="number" [(ngModel)]="book.rating" name="rating" />
+                    </p>
 
-                <p><strong>Author:</strong> 
-                <input
-                    *ngIf="book.isEditing; else viewAuthor"
-                    [(ngModel)]="book.author"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewAuthor>{{book.author}}</ng-template>
-                </p>
+                    <p><strong>Author:</strong>
+                    <input [(ngModel)]="book.author" name="author" />
+                    </p>
 
-                <p><strong>Genre:</strong>
-                <input
-                    *ngIf="book.isEditing; else viewGenre"
-                    [(ngModel)]="book.genre"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewGenre>{{ book.genre }}</ng-template>
-                </p>
+                    <p><strong>Genre:</strong>
+                    <input [(ngModel)]="book.genre" name="genre" />
+                    </p>
 
-                <p><strong>Description:</strong>
-                <input
-                    *ngIf="book.isEditing; else viewDescription"
-                    [(ngModel)]="book.description"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewDescription>{{ book.description }}</ng-template>
-                </p>
+                    <p><strong>Description:</strong>
+                    <input [(ngModel)]="book.description" name="description" />
+                    </p>
 
-                <p><strong>Publisher:</strong>
-                <input
-                    *ngIf="book.isEditing; else viewPublisher"
-                    [(ngModel)]="book.publisher"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewPublisher>{{ book.publisher }}</ng-template>
-                </p>
+                    <p><strong>Publisher:</strong>
+                    <input [(ngModel)]="book.publisher" name="publisher" />
+                    </p>
 
-                <p><strong>Price:</strong>
-                <input
-                    type="number"
-                    *ngIf="book.isEditing; else viewPrice"
-                    [(ngModel)]="book.price"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewPrice>₱{{ book.price }}</ng-template>
-                </p>
+                    <p><strong>Price:</strong>
+                    <input type="number" [(ngModel)]="book.price" name="price" />
+                    </p>
 
-                <p><strong>Status:</strong>
-                <input
-                    *ngIf="book.isEditing; else viewStatus"
-                    [(ngModel)]="book.status"
-                    (keydown.enter)="updateBook(book)"
-                />
-                <ng-template #viewStatus>{{ book.status }} ({{ book.quantityStock }})</ng-template>
-                </p>
-            </div>
+                    <p><strong>Status:</strong>
+                    <input [(ngModel)]="book.status" name="status" />
+                    </p>
+
+                    <button type="submit" style="display: none;"></button>
+
+                </form>
+            </ng-container>
+
+            <ng-template #viewBook>
+                <div class="book-details">
+
+                    <h3 class="book-title">{{ book.title }}</h3>
+
+                    <p class="rating" *ngIf="book.rating !== undefined">
+                        <span class="stars" [style.--rating]="book.rating || 0"></span>
+                        <span>({{ book.rating.toFixed(1) || '0.0' }})</span>
+                    </p>
+
+                    <p><strong>Author:</strong> {{ book.author }}</p>
+                    <p><strong>Genre:</strong> {{ book.genre }}</p>
+                    <p><strong>Description:</strong> {{ book.description }}</p>
+                    <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+                    <p><strong>Price:</strong> ₱{{ book.price }}</p>
+                    <p><strong>Status:</strong> {{ book.status }} ({{ book.quantityStock }})</p>
+
+                </div>
+            </ng-template>
 
             <div class="book-actions">
-                <button (click)="editBook(book)"style="background-color:#ffde7d;color:#111729;">
-                    {{book.isEditing ? 'Save' : 'Edit'}}
-                </button>
+                <button (click)="editBook(book)" style="background-color:#ffde7d;color:#111729;"> {{book.isEditing ? 'Save' : 'Edit'}}</button>
                 <button style="background-color:#b85042;color:#f1e9da;">Remove</button>
                 <button style="background-color:#3a4f7a;color:#f1e9da;">Edit</button>
             </div>
