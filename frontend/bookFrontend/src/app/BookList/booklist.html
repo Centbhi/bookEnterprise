@@ -24,7 +24,8 @@
                     </h3>
 
                     <p class="rating" *ngIf="book.rating !== undefined">
-                    <input type="number" [(ngModel)]="book.rating" name="rating" />
+                    <input type="number" [(ngModel)]="book.rating" name="rating" min="0" max="5" 
+                    (input)="book.rating = validateNum(book.rating,0,5)" />
                     </p>
 
                     <p><strong>Author:</strong>
@@ -44,11 +45,15 @@
                     </p>
 
                     <p><strong>Price:</strong>
-                    <input type="number" [(ngModel)]="book.price" name="price" />
+                    <input type="number" [(ngModel)]="book.price" name="price"
+                    (input)="book.price = validateNum(book.price,0)" />
                     </p>
 
                     <p><strong>Status:</strong>
                     <input [(ngModel)]="book.status" name="status" />
+                    <p><strong>Quantity Stock:</strong>
+                    <input type="number" [(ngModel)]="book.quantityStock" name="quantityStock" 
+                    (input) = "book.quantityStock = validateNum(book.quantityStock,0)"/>
                     </p>
 
                     <button type="submit" style="display: none;"></button>
@@ -79,7 +84,6 @@
             <div class="book-actions">
                 <button (click)="editBook(book)" style="background-color:#ffde7d;color:#111729;"> {{book.isEditing ? 'Save' : 'Edit'}}</button>
                 <button style="background-color:#b85042;color:#f1e9da;">Remove</button>
-                <button style="background-color:#3a4f7a;color:#f1e9da;">Edit</button>
             </div>
         </li>
     }

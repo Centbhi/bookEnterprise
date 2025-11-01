@@ -29,6 +29,18 @@ export class BookList implements OnInit{
     });
   }
 
+  validateNum(value: number, lowerLim: number = 0, upperLim: number = 9999): number{
+    if(value > lowerLim){
+      if(value < upperLim){
+        return value;
+      }else{
+        return upperLim;
+      }
+    }else{
+      return lowerLim;
+    }
+  }
+
   updateBook(book: Book): void{
     this.api.updateBook(book.id, book).subscribe({
       next: (updated) => {

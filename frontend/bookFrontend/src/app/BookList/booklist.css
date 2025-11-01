@@ -110,6 +110,7 @@ p {
 
 .book-details{
   margin-right: 100px;
+  width: 450px;
 }
 .book-details p {
   display: grid;
