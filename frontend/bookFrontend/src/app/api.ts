@@ -16,6 +16,8 @@ export interface Book {
   quantityStock: number;
   price: number;
   rating: number;
+
+  isEditing?: boolean;
 }
 
 @Injectable({
@@ -23,26 +25,27 @@ export interface Book {
 })
 
 export class ApiService{
+  private baseUrl = "/api/book"
   constructor(private http: HttpClient){}
 
-  getBooks() : Observable<Book[]> {
-    return this.http.get<Book[]>(`/api/book`);
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.baseUrl);
   }
 
-  getBook(id:number) : Observable<Book> {
-    return this.http.get<Book>(`/api/book/${id}`);
+  getBook(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.baseUrl}/${id}`);
   }
 
-  createBook(book:Book) : Observable<Book> {
-    return this.http.post<Book>(`/api/book`,book);
+  createBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(this.baseUrl, book);
   }
 
-  updateBook(id:number,book:Book) : Observable<Book> {
-    return this.http.put<Book>(`/api/book/${id}`,book);
+  updateBook(id: number, book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.baseUrl}/${id}`, book);
   }
 
-  deleteBook(id:number) : Observable<void>{
-    return this.http.delete<void>(`/api/book/${id}`);
+  deleteBook(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
 }
