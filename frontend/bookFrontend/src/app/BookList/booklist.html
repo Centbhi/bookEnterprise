@@ -12,7 +12,7 @@
             <button (click)="test()"  style="background-color:#b85042;color:#f1e9da;">Admin Switch Tester</button>
         </p>
     </h2>
-    <ng-container *ngIf="user?.isAdmin; else userView">
+    <ng-container *ngIf="user?.admin; else userView">
         <admin-booklist></admin-booklist>
     </ng-container>
     <ng-template #userView>

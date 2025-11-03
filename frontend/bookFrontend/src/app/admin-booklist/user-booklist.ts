@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, Book } from '../api';
+import { BookApi, Book } from '../book-api';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 export class UserBookList implements OnInit{
   books: Book[] = [];
-  constructor (private api:ApiService) {}
+  constructor (private api:BookApi) {}
 
   ngOnInit(): void {
     this.api.getBooks().subscribe({

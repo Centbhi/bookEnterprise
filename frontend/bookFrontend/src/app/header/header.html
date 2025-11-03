@@ -4,7 +4,7 @@
             <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>            
             <li><a routerLink = "/genre" routerLinkActive = "active">Genres</a></li>
             <li><a routerLink = "/cart" routerLinkActive = "active">Cart</a></li>
-            <li><a routerLink = "/login" routerLinkActive = "active">Login</a></li>
+            <li><a (click)="confirmLogout($event)" >Logout</a></li>
         </ul>
     </nav>
 </header>

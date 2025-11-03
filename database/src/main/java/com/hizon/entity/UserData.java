@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @Entity
@@ -14,9 +15,13 @@ public class UserData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @Column(unique = true, nullable = false)
     String name;
+
+    @JsonIgnore
+    @Column(nullable = false)
     String password;
-    boolean isAdmin;
+    boolean admin;
     
     // List<BookData> books;
 

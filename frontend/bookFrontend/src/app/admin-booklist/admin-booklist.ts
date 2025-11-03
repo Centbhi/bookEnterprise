@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, Book } from '../api';
+import { BookApi, Book } from '../book-api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 export class AdminBookList implements OnInit{
   books: Book[] = [];
-  constructor (private api:ApiService) {}
+  constructor (private api:BookApi) {}
 
   ngOnInit(): void {
     this.api.getBooks().subscribe({
@@ -70,7 +70,7 @@ export class AdminBookList implements OnInit{
         response.isEditing = true;
         this.books.unshift(response);
       },
-      error: (err) => console.log('Book Deletion Failure:', err)
+      error: (err) => console.log('Book Creation Failure:', err)
     })
 
   }
