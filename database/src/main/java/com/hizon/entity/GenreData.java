@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 public class GenreData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     String genre;
 

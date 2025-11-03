@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 public class StatusData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     String status;
 

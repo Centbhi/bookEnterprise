@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 public class BookData{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     String title;
     String genre;
