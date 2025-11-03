@@ -41,7 +41,7 @@ export class AdminBookList implements OnInit{
   }
 
   updateBook(book: Book): void{
-    this.api.updateBook(book.id, book).subscribe({
+    this.api.updateBook(book.id!, book).subscribe({
       next: (response) => {
         console.log('Book Update Successful:', response);
         book['isEditing'] = false;
@@ -52,7 +52,6 @@ export class AdminBookList implements OnInit{
 
   createBook(): void{
     const newBook: Book ={
-      id: 0,
       title: 'New Book',
       rating: 0,
       coverImgUrl: '',
@@ -76,7 +75,7 @@ export class AdminBookList implements OnInit{
   }
 
   deleteBook(book: Book): void{
-    this.api.deleteBook(book.id).subscribe({
+    this.api.deleteBook(book.id!).subscribe({
       next: (response) => {
         console.log('Book Deletion Successful:', response);
         this.books = this.books.filter(b => b.id !== book.id);
