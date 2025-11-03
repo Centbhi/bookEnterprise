@@ -64,9 +64,14 @@ constructor (private api:ApiService) {}
       price: 0,
       status: 'Available',
       quantityStock: 0,
-      isEditing: true
     };
-    this.books.unshift(newBook);
+    this.api.createBook(newBook).subscribe({
+      next: (response) => {
+        response.isEditing = true;
+        this.books.unshift(response);
+      },
+      error: (err) => console.log('Book Deletion Failure:', err)
+    })
 
   }
 
@@ -74,7 +79,7 @@ constructor (private api:ApiService) {}
     this.api.deleteBook(book.id).subscribe({
       next: (response) => {
         console.log('Book Deletion Successful:', response);
-        this.ngOnInit();
+        this.books = this.books.filter(b => b.id !== book.id);
       },
       error: (err) => console.log('Book Deletion Failure:', err)
     });
