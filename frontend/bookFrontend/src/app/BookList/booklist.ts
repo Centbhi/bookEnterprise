@@ -2,61 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService, Book } from '../api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { UserBookList } from '../admin-booklist/user-booklist';
+import { AdminBookList } from '../admin-booklist/admin-booklist';
 
 @Component({
   selector: 'app-booklist',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UserBookList, AdminBookList],
   standalone: true,
   templateUrl: './booklist.html',
   styleUrl: './booklist.css'
 })
 
-export class BookList implements OnInit{
-  books: Book[] = [];
+export class BookList{
+  user = {isAdmin: true};
 
-  constructor (private api:ApiService) {}
-
-  ngOnInit(): void {
-    this.api.getBooks().subscribe({
-      next: (data) => {
-        console.log(data);
-        this.books = data;
-        this.books.forEach(book => 
-          book['isEditing'] = false
-        );
-      },
-      error: (err) => console.error('API Error', err)
-    });
+  test(): void{
+    this.user.isAdmin = !this.user.isAdmin;
   }
-
-  validateNum(value: number, lowerLim: number = 0, upperLim: number = 9999): number{
-    if(value > lowerLim){
-      if(value < upperLim){
-        return value;
-      }else{
-        return upperLim;
-      }
-    }else{
-      return lowerLim;
-    }
-  }
-
-  updateBook(book: Book): void{
-    this.api.updateBook(book.id, book).subscribe({
-      next: (updated) => {
-        console.log('Book Update Successful:', updated);
-        book['isEditing'] = false;
-      },
-      error: (err) => console.log('Book Update Failure:', err)
-    });
-  }
-
-  editBook(book: Book): void{
-    if(book.isEditing){
-      this.updateBook(book);
-    }
-    book.isEditing = !book.isEditing;
-  }
-
 
 }
