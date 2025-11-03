@@ -41,17 +41,4 @@ public class UserServiceImpl extends GenericServiceImpl<UserData, User> implemen
         UserData saved = userRepository.save(entity);
         return mapper.map(saved, User.class);
     }
-
-    @Override
-    public User create(User model){
-        UserData entity = mapper.map(model, UserData.class);
-
-        if (model.getPassword() != null && !model.getPassword().isEmpty()) {
-            entity.setPassword(passwordEncoder.encode(model.getPassword()));
-        }
-
-        UserData saved = userRepository.save(entity);
-        return mapper.map(saved, User.class);
-    }
-
 }
