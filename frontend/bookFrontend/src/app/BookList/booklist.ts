@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, Book } from '../api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserBookList } from '../admin-booklist/user-booklist';
 import { AdminBookList } from '../admin-booklist/admin-booklist';
+import { Router } from '@angular/router';
+import { User } from '../api';
 
 @Component({
   selector: 'app-booklist',
@@ -13,11 +14,21 @@ import { AdminBookList } from '../admin-booklist/admin-booklist';
   styleUrl: './booklist.css'
 })
 
-export class BookList{
-  user = {isAdmin: true};
+
+export class BookList implements OnInit{
+  constructor(private router:Router){}
+  user: User|null = null;
+  
+  ngOnInit(): void {
+    if(!this.user){
+      alert('You must be logged in to view this page');
+      this.router.navigate(['/login']);
+    }
+  }
 
   test(): void{
-    this.user.isAdmin = !this.user.isAdmin;
+    if(this.user)
+      this.user.isAdmin = !this.user?.isAdmin;
   }
 
 }

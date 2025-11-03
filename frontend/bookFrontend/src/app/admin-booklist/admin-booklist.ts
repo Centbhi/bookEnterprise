@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 export class AdminBookList implements OnInit{
   books: Book[] = [];
-constructor (private api:ApiService) {}
+  constructor (private api:ApiService) {}
 
   ngOnInit(): void {
     this.api.getBooks().subscribe({
