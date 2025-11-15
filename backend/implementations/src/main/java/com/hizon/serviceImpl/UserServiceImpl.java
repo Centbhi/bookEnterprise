@@ -1,4 +1,5 @@
 package com.hizon.serviceImpl;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,12 +32,25 @@ public class UserServiceImpl extends GenericServiceImpl<UserData, User> implemen
     public User update(int id, User model){
         UserData entity = userRepository.findById(id).orElseThrow(() ->
             new RuntimeException(UserData.class.getSimpleName() + " not found with id: " + id));
-        mapper.getConfiguration().setSkipNullEnabled(true);
+
         mapper.map(model, entity);
 
         if (model.getPassword() != null && !model.getPassword().isEmpty()) {
             entity.setPassword(passwordEncoder.encode(model.getPassword()));
         }
+
+        UserData saved = userRepository.save(entity);
+        return mapper.map(saved, User.class);
+    }
+
+    @Override
+    public User create(User model){
+        UserData entity = mapper.map(model, UserData.class);
+
+            if (model.getPassword() != null && !model.getPassword().isEmpty()) {
+                entity.setPassword(passwordEncoder.encode(model.getPassword()));
+            }
+        entity.setId(null);
 
         UserData saved = userRepository.save(entity);
         return mapper.map(saved, User.class);

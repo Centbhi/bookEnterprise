@@ -1,0 +1,2 @@
+Genre Search
+Genre models turned into a list

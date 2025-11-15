@@ -7,7 +7,6 @@
         </div>
 
         <div class="book-details">
-
             <h3 class="book-title">{{ book.title }}</h3>
 
             <p class="rating" *ngIf="book.rating !== undefined">
@@ -21,14 +20,13 @@
             <p><strong>Publisher:</strong> {{ book.publisher }}</p>
             <p><strong>Price:</strong> ₱{{ book.price }}</p>
             <p><strong>Status:</strong> {{ book.status }} ({{ book.quantityStock }})</p>
-
         </div>
 
         <div class="book-actions">
-            <button style="background-color:#ffde7d;color:#111729;"> Add to Cart</button>
-            <button style="background-color:#b85042;color:#f1e9da;"> Remove from Cart</button>
+            <button style = "background-color:#ffde7d;">BUY</button>
+            <button style = "background-color:#ffde7d;">ADD TO CART</button>
+            <button style = "background-color:#ffde7d;">REMOVE</button>
         </div>
-
     </li>
 }
 </ul>

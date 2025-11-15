@@ -21,11 +21,20 @@
 .nav-links a{
     color: #f1e9da;
     text-decoration: none;
+    display: flex;
+    padding: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 222, 125, 0.1); 
 }
 
 .nav-links a.active {
     color: #ff8800;
     font-weight: bold;
+    pointer-events: none;
 }
 
 .nav-links {
@@ -33,15 +42,4 @@
     margin: 0;
 }
 
-
-.nav-links li {
-  display: flex;
-  padding: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.nav-links li:hover {
-  background: rgba(255, 222, 125, 0.1); 
-}
 

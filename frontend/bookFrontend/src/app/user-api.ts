@@ -22,6 +22,7 @@ export class UserApi {
 
 
   logout(): void{
+    localStorage.removeItem('currUser');
     this.currUser = null;
   }
 
@@ -29,9 +30,12 @@ export class UserApi {
     if(!this.currUser){
       const userJson = localStorage.getItem('currUser');
       if (userJson) this.currUser = JSON.parse(userJson);
+      else this.currUser = null;
+
     }
     return this.currUser;
   }
+
   setCurrUser(user: User): void {
     this.currUser=user;
     localStorage.setItem('currUser', JSON.stringify(user));

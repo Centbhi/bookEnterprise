@@ -46,4 +46,8 @@ export class BookApi{
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
+  getByGenre(genre: string): Observable<Book[]>{
+    return this.http.get<Book[]>(this.baseUrl);
+  }
+
 }

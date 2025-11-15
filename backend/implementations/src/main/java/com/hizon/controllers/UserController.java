@@ -1,6 +1,5 @@
 package com.hizon.controllers;
 
-import com.hizon.model.LoginRequest;
 import com.hizon.model.User;
 import com.hizon.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -25,15 +24,15 @@ public class UserController extends GenericController<User>{
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login (@RequestBody LoginRequest req){
-        User user = service.findByName(req.getName());
-        if(passwordEncoder.matches(req.getPassword(), user.getPassword())){
+    public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
+        User user = service.findByName(body.get("name"));
+        if(passwordEncoder.matches(body.get("password"), user.getPassword())){
             user.setPassword(null);
             return ResponseEntity.ok(user);
         }else {
-            Map<String, String> body = new HashMap<>();
-            body.put("message", "Invalid Password");
-            return ResponseEntity.badRequest().body(body);
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Invalid Password");
+            return ResponseEntity.badRequest().body(response);
         }
     }
 }

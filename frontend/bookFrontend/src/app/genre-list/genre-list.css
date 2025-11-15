@@ -1,11 +1,3 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  color: #f1e9da;
-}
-
 button {
   padding: 25px;
   cursor: pointer;
@@ -16,6 +8,14 @@ button {
 button:hover {
   transform: scale(1.1);
   filter: brightness(1.5);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #f1e9da;
 }
 
 .hero {

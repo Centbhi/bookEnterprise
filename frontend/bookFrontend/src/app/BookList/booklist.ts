@@ -19,7 +19,7 @@ export class BookList implements OnInit{
   constructor (private api:UserApi,private router:Router) {}
   
   ngOnInit(): void {
-    if(!this.api.getCurrUser){
+    if(!this.api.getCurrUser()){
       alert('You must be logged in to view this page');
       this.router.navigate(['/login']);
     }
@@ -27,6 +27,10 @@ export class BookList implements OnInit{
   
   get user(){
     return this.api.getCurrUser();
+  }
+
+  clickGenre(): void{
+    
   }
 
   test(): void {
