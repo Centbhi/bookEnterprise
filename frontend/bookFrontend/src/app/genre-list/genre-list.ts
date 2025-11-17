@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookApi, Book } from '../book-api';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-genre-list',
-  imports: [CommonModule],
   templateUrl: './genre-list.html',
   styleUrl: './genre-list.css'
 })

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookApi, Book } from '../book-api';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'user-booklist',
-  imports: [CommonModule],
   templateUrl: './user-booklist.html',
   styleUrl: './booklist.css'
 })

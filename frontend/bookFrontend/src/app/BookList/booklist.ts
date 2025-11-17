@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserBookList } from '../admin-booklist/user-booklist';
 import { AdminBookList } from '../admin-booklist/admin-booklist';
@@ -9,7 +8,7 @@ import { UserApi } from '../user-api';
 
 @Component({
   selector: 'app-booklist',
-  imports: [CommonModule, FormsModule, UserBookList, AdminBookList, BooklistLayout],
+  imports: [FormsModule, UserBookList, AdminBookList, BooklistLayout],
   templateUrl: './booklist.html',
 })
 
