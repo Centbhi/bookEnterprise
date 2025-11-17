@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserBookList } from '../admin-booklist/user-booklist';
 import { AdminBookList } from '../admin-booklist/admin-booklist';
-import { BooklistLayout } from '../booklist-layout/booklist-layout';
+import { BooklistLayout } from '../landing-page/landing-page';
 import { Router } from '@angular/router';
 import { UserApi } from '../user-api';
 
