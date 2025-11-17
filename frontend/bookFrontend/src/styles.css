@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+button {
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  filter: brightness(1.5);
+}
+
+.btn-primary {
+  background-color: #b85042;
+  color: #f1e9da;
+}
+
+.btn-secondary {
+  background-color: #4464ad;
+  /* color: #ffffff; */
+  background-color: #e63946;
+}
+
+.btn-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #e63946;
+  color: white;
+}
