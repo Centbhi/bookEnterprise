@@ -2,16 +2,20 @@
     sectionTitle = "Featured Books">
 
     <div section-actions>
-        <button class = "btn-secondary" (click)="test()">Admin Switch Tester</button>
+        <button class = "btn-secondary" (click)="switchAdmin()">Admin Switch Tester</button>
+        @if (user?.admin) {
+            <button (click) = "createBook()"> 
+                Create Book
+            </button>
+        }
     </div>
 
     <div section-body>
-        <ng-container *ngIf="user?.admin; else userView">
-            <admin-booklist></admin-booklist>
-        </ng-container>
-        <ng-template #userView>
+        @if (user?.admin) {
+            <admin-booklist #adminBookList></admin-booklist>
+        }
+        @else {
             <user-booklist></user-booklist>
-        </ng-template>
+        }
     </div>
-
 </booklist-layout>

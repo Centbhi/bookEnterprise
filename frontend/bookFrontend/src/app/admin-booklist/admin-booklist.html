@@ -1,5 +1,3 @@
-<button (click)="createBook()" class="createBtn">Add Book</button>
-
 <ul class="book-list">
 @for (book of books; track book.id){
     <li class="book-card">
@@ -7,8 +5,7 @@
         <div class="book-cover">
             <img [src]= "'assets/bookCovers/'+book.coverImgUrl"/>
         </div>
-
-        <ng-container *ngIf = "book.isEditing; else viewBook">
+        @if (book.isEditing){
             <form class="book-details" (ngSubmit)="updateBook(book)">
 
                 <p><strong>Title:</strong>
@@ -53,18 +50,17 @@
                 </p>
 
                 <button type="submit" style="display: none;"></button>
-
             </form>
-        </ng-container>
-
-        <ng-template #viewBook>
+        }
+        @else{
             <div class="book-details">
-
                 <h3 class="book-title">{{ book.title }}</h3>
 
-                <p class="rating" *ngIf="book.rating !== undefined">
-                    <span class="stars" [style.--rating]="book.rating"></span>
-                    <span>({{ book.rating.toFixed(1) }})</span>
+                <p class="rating">
+                    @if (book.rating !== undefined){
+                        <span class="stars" [style.--rating]="book.rating"></span>
+                        <span>({{ book.rating.toFixed(1) }})</span>
+                    }
                 </p>
 
                 <p><strong>Author:</strong> {{ book.author }}</p>
@@ -73,9 +69,8 @@
                 <p><strong>Publisher:</strong> {{ book.publisher }}</p>
                 <p><strong>Price:</strong> ₱{{ book.price }}</p>
                 <p><strong>Status:</strong> {{ book.status }} ({{ book.quantityStock }})</p>
-
             </div>
-        </ng-template>
+        }
 
         <div class="book-actions">
             <button (click)="editBook(book)"    style="background-color:#ffde7d;color:#111729;"> {{book.isEditing ? 'Save' : 'Edit'}}</button>

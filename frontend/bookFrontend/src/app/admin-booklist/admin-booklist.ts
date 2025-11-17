@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'admin-booklist',
   imports: [CommonModule, FormsModule],
-  standalone: true,
   templateUrl: './admin-booklist.html',
   styleUrl: './booklist.css'
 })

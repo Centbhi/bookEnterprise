@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserBookList } from '../admin-booklist/user-booklist';
@@ -10,13 +10,16 @@ import { UserApi } from '../user-api';
 @Component({
   selector: 'app-booklist',
   imports: [CommonModule, FormsModule, UserBookList, AdminBookList, BooklistLayout],
-  standalone: true,
   templateUrl: './booklist.html',
-  styleUrl: './booklist.css'
 })
 
 export class BookList implements OnInit{
   constructor (private api:UserApi,private router:Router) {}
+
+  @ViewChild('adminBookList') adminBookList!:AdminBookList;
+  createBook(){
+    this.adminBookList.createBook();
+  }
   
   ngOnInit(): void {
     if(!this.api.getCurrUser()){
@@ -29,11 +32,7 @@ export class BookList implements OnInit{
     return this.api.getCurrUser();
   }
 
-  clickGenre(): void{
-    
-  }
-
-  test(): void {
+  switchAdmin(): void {
     const user = this.api.getCurrUser();
     if(!user||!user.id) return; 
     const updatedUser = { ...user, admin: !user.admin};

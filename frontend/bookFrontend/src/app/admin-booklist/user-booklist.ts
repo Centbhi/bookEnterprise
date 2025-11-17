@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'user-booklist',
   imports: [CommonModule],
-  standalone: true,
   templateUrl: './user-booklist.html',
   styleUrl: './booklist.css'
 })
