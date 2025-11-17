@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserBookList } from '../admin-booklist/user-booklist';
 import { AdminBookList } from '../admin-booklist/admin-booklist';
+import { BooklistLayout } from '../booklist-layout/booklist-layout';
 import { Router } from '@angular/router';
-import { User, UserApi} from '../user-api';
+import { UserApi } from '../user-api';
 
 @Component({
   selector: 'app-booklist',
-  imports: [CommonModule, FormsModule, UserBookList, AdminBookList],
+  imports: [CommonModule, FormsModule, UserBookList, AdminBookList, BooklistLayout],
   standalone: true,
   templateUrl: './booklist.html',
   styleUrl: './booklist.css'
 })
-
 
 export class BookList implements OnInit{
   constructor (private api:UserApi,private router:Router) {}

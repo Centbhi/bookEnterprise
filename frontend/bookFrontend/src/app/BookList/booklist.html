@@ -1,25 +1,17 @@
-<div class="hero">
-    <div class="hero-text">
-        <h1>Welcome to <span>Evening Pages</span></h1>
-        <p>Where stories glow softly under the twilight sky</p>
+<booklist-layout
+    sectionTitle = "Featured Books">
+
+    <div section-actions>
+        <button class = "btn-secondary" (click)="test()">Admin Switch Tester</button>
     </div>
-</div>
 
-<main class="container">
-    <h2 class="section-title">
-        Featured Books
-        <p>
-            <button (click)="test()"  style="background-color:#b85042;color:#f1e9da;">Admin Switch Tester</button>
-        </p>
-    </h2>
-    <ng-container *ngIf="user?.admin; else userView">
-        <admin-booklist></admin-booklist>
-    </ng-container>
-    <ng-template #userView>
-        <user-booklist></user-booklist>
-    </ng-template>
+    <div section-body>
+        <ng-container *ngIf="user?.admin; else userView">
+            <admin-booklist></admin-booklist>
+        </ng-container>
+        <ng-template #userView>
+            <user-booklist></user-booklist>
+        </ng-template>
+    </div>
 
-
-</main>
-
-
+</booklist-layout>
