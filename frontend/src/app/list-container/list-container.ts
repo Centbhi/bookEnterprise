@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 import { UserApi } from '../user-api';
 
 @Component({
-  selector: 'app-booklist',
+  selector: 'app-list-container',
   imports: [FormsModule, UserBookList, AdminBookList, BooklistLayout],
-  templateUrl: './booklist.html',
+  templateUrl: './list-container.html',
 })
 
 export class BookList implements OnInit{
