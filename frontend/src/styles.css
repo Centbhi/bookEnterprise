@@ -10,6 +10,3 @@ button:hover {
   transform: scale(1.1);
   filter: brightness(1.5);
 }
-
-@import "~bootstrap-icons/font/bootstrap-icons.css";
-
