@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BookApi, Book } from '../book-api';
 import { FormsModule } from '@angular/forms';
+import { BookCard } from "../book-card/book-card";
 
 @Component({
   selector: 'admin-booklist',
-  imports: [FormsModule],
+  imports: [FormsModule, BookCard],
   templateUrl: './admin-booklist.html',
   styleUrl: './booklist.css'
 })

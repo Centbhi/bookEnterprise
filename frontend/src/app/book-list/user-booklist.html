@@ -1,0 +1,11 @@
+<ul class="book-list">
+@for (book of books; track book.id){
+    <app-book-card [book]="book">
+        <div class = "book-actions">
+            <button style = "background-color:#ffde7d;">BUY</button>
+            <button style = "background-color:#ffde7d;">ADD TO CART</button>
+            <button style = "background-color:#ffde7d;">REMOVE</button>
+        </div>
+    </app-book-card>
+}
+</ul>

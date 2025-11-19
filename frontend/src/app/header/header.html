@@ -1,10 +1,44 @@
-<header> <nav class="navbar">
-    <div class="logo">The Evening Pages</div>
-        <ul class="nav-links">
-            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>            
-            <li><a routerLink = "/genre" routerLinkActive = "active">Genres</a></li>
-            <li><a routerLink = "/cart" routerLinkActive = "active">Cart</a></li>
-            <li><a (click)="confirmLogout($event)" >Logout</a></li>
-        </ul>
-    </nav>
-</header>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg">
+  <div class="container-fluid px-3 px-md-4">
+    <a class="navbar-brand fw-bold fst-italic d-flex align-items-center gap-2" href="#">
+        <img src="assets/book.ico" alt="Book Icon" width="24" height="24">
+        <span>The Evening Pages</span>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item">
+          <a class="nav-link rounded-3" routerLink="/" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{ exact: true }">
+            <i class="bi bi-house-door me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-3" routerLink="/genre" routerLinkActive="active">
+            <i class="bi bi-bookmark me-1"></i>Genres
+          </a>
+        </li>
+        <li class="nav-item position-relative">
+          <a class="nav-link rounded-3" routerLink="/cart" routerLinkActive="active">
+            <i class="bi bi-cart me-1"></i>Cart
+            <span class="position-absolute top-0 start-100 translate-middle 
+              badge rounded-pill bg-warning text-dark">
+              3
+              <span class="visually-hidden">items in cart</span>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-3 logout-link" (click)="confirmLogout($event)">
+            <i class="bi bi-box-arrow-right me-1"></i>Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

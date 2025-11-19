@@ -1,17 +1,4 @@
 
-.book-actions {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0.3rem 0;
-}
-
-.book-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .book-card {
   display: flex;
   align-items: flex-start;
@@ -21,11 +8,6 @@
   border-radius: 10px;
   background: rgba(255,255,255,0.08);
   transition: all 0.3s ease;
-}
-
-.book-card:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.12);
 }
 
 .book-cover img {

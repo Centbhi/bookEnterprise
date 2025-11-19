@@ -1,0 +1,63 @@
+<ul class="book-list">
+    @for (book of books; track book.id){
+        @if (book.isEditing){
+            <li class="book-card">
+                <div class="book-cover">
+                    <img [src]= "'assets/bookCovers/'+book.coverImgUrl"/>
+                </div>
+                <form class="book-details" (ngSubmit)="updateBook(book)">
+                    <p><strong>Title:</strong>
+                        <input [(ngModel)]="book.title" name="title" required />
+                    </p>
+
+                    <p><strong>Rating:</strong>
+                        <input type="number" [(ngModel)]="book.rating" name="rating" min="0" max="5" 
+                        (input)="book.rating = validateNum(book.rating,0,5)" />
+                    </p>
+
+                    <p><strong>Cover Image Url:</strong>
+                    <input [(ngModel)]="book.coverImgUrl" name="coverImgUrl" />
+                    </p>
+
+                    <p><strong>Author:</strong>
+                    <input [(ngModel)]="book.author" name="author" />
+                    </p>
+
+                    <p><strong>Genre:</strong>
+                    <input [(ngModel)]="book.genre" name="genre" />
+                    </p>
+
+                    <p><strong>Description:</strong>
+                    <input [(ngModel)]="book.description" name="description" />
+                    </p>
+
+                    <p><strong>Publisher:</strong>
+                    <input [(ngModel)]="book.publisher" name="publisher" />
+                    </p>
+
+                    <p><strong>Price:</strong>
+                    <input type="number" [(ngModel)]="book.price" name="price"
+                    (input)="book.price = validateNum(book.price,0)" />
+                    </p>
+
+                    <p><strong>Status:</strong>
+                    <input [(ngModel)]="book.status" name="status" />
+                    <p><strong>Quantity Stock:</strong>
+                    <input type="number" [(ngModel)]="book.quantityStock" name="quantityStock" 
+                    (input) = "book.quantityStock = validateNum(book.quantityStock,0)"/>
+                    </p>
+
+                    <button type="submit" style="display: none;"></button>
+                </form>
+            </li>
+        }
+        @else{
+            <app-book-card [book]="book">
+                <div class="book-actions">
+                    <button class = "btn-warning" (click)="editBook(book)"> {{book.isEditing ? 'Save' : 'Edit'}}</button>
+                    <button class = "btn-danger" (click)="deleteBook(book)">Remove</button>
+                </div>
+            </app-book-card>
+        }
+    }
+</ul>

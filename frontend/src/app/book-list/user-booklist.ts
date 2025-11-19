@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BookApi, Book } from '../book-api';
+import { BookCard } from '../book-card/book-card'
 
 @Component({
   selector: 'user-booklist',
   templateUrl: './user-booklist.html',
+  imports: [BookCard],
   styleUrl: './booklist.css'
 })
 
