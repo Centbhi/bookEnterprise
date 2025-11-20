@@ -1,4 +1,4 @@
-
+Fix Responsiveness of site
 Turn BookList into a template
 Genre Search
 Genre models turned into a list
