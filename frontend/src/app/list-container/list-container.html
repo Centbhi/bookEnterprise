@@ -4,18 +4,9 @@
     Here, narratives breathe with life, characters dance in the amber light, and imagination knows no bounds. 
     Explore our curated collection of tales that warm the heart and ignites the mind.">
 
-    <div section-actions>
-        <button class = "btn-secondary" (click)="switchAdmin()">Admin Switch Tester</button>
-        @if (user?.admin) {
-            <button (click) = "createBook()"> 
-                Create Book
-            </button>
-        }
-    </div>
-
     <div section-body>
         @if (user?.admin) {
-            <admin-booklist #adminBookList></admin-booklist>
+            <admin-booklist></admin-booklist>
         }
         @else {
             <user-booklist></user-booklist>

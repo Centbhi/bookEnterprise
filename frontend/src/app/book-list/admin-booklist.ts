@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BookApi, Book } from '../book-api';
 import { FormsModule } from '@angular/forms';
 import { BookCard } from "../book-card/book-card";
+import { AdminCard } from "../book-card/admin-card";
 
 @Component({
   selector: 'admin-booklist',
-  imports: [FormsModule, BookCard],
+  imports: [FormsModule, BookCard, AdminCard],
   templateUrl: './admin-booklist.html',
   styleUrl: './booklist.css'
 })
@@ -25,18 +26,6 @@ export class AdminBookList implements OnInit{
       },
       error: (err) => console.error('API Error', err)
     });
-  }
-
-  validateNum(value: number, lowerLim: number = 0, upperLim: number = 9999): number{
-    if(value > lowerLim){
-      if(value < upperLim){
-        return value;
-      }else{
-        return upperLim;
-      }
-    }else{
-      return lowerLim;
-    }
   }
 
   updateBook(book: Book): void{

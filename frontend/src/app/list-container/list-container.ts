@@ -14,11 +14,6 @@ import { UserApi } from '../user-api';
 
 export class BookList implements OnInit{
   constructor (private api:UserApi,private router:Router) {}
-
-  @ViewChild('adminBookList') adminBookList!:AdminBookList;
-  createBook(){
-    this.adminBookList.createBook();
-  }
   
   ngOnInit(): void {
     if(!this.api.getCurrUser()){
@@ -31,14 +26,4 @@ export class BookList implements OnInit{
     return this.api.getCurrUser();
   }
 
-  switchAdmin(): void {
-    const user = this.api.getCurrUser();
-    if(!user||!user.id) return; 
-    const updatedUser = { ...user, admin: !user.admin};
-    this.api.updateUser(user.id, updatedUser).subscribe({
-      next: updated => {this.api.setCurrUser(updated);
-        console.log(updated);},
-      error: err => console.error('Failed to update user:', err)
-    });
-  }
 }
