@@ -1,4 +1,5 @@
-Fix Responsiveness of site
 Turn BookList into a template
 Genre Search
-Genre models turned into a list
+Genre -> List<Genre>
+Add Genre Btn
+Login has an issue for sure
