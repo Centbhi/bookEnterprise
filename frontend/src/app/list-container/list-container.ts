@@ -1,29 +1,26 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { UserBookList } from '../book-list/user-booklist';
-import { AdminBookList } from '../book-list/admin-booklist';
-import { BooklistLayout } from '../landing-page/landing-page';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { UserApi } from '../user-api';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-list-container',
-  imports: [FormsModule, UserBookList, AdminBookList, BooklistLayout],
+  selector: 'app--list-container',
   templateUrl: './list-container.html',
+  styleUrl: './list-container.css'
 })
+export class BooklistLayout {
+  @Input() sectionTitle = '';
+  @Input() sectionText= '';
 
-export class BookList implements OnInit{
   constructor (private api:UserApi,private router:Router) {}
-  
-  ngOnInit(): void {
-    if(!this.api.getCurrUser()){
-      alert('You must be logged in to view this page');
-      this.router.navigate(['/login']);
-    }
-  }
-  
-  get user(){
-    return this.api.getCurrUser();
-  }
 
+  switchAdmin(): void {
+    const user = this.api.getCurrUser();
+    if(!user||!user.id) return; 
+    const updatedUser = { ...user, admin: !user.admin};
+    this.api.updateUser(user.id, updatedUser).subscribe({
+      next: updated => {this.api.setCurrUser(updated);
+        console.log(updated);},
+      error: err => console.error('Failed to update user:', err)
+    });
+  }
 }

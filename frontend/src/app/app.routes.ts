@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { BookList } from './list-container/list-container';
+import { BookList } from './landing-page/landing-page';
 import { Login } from './login/login';
 import { GenrePage} from './genre-page/genre-page';
 
