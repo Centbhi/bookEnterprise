@@ -47,7 +47,7 @@ export class BookApi{
   }
 
   getByGenre(genre: string): Observable<Book[]>{
-    return this.http.get<Book[]>(`${this.baseUrl}/${genre}`);
+    return this.http.get<Book[]>(`${this.baseUrl}/genre/${genre}`);
   }
 
 }

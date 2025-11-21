@@ -7,12 +7,11 @@
 
 <div class="content-card">
   <div class="section-header">
-    <h2 class="section-title">Featured Stories</h2>
+    <h2 class="section-title">{{sectionTitle}}</h2>
     <div class="divider"></div>
   </div>
   <div class="section-body">
-    <p>Welcome to The Evening Pages, where every story unfolds like the gentle transition from day to night. Here, narratives breathe with life, characters dance in the amber light, and imagination knows no bounds.</p>
-    <p class="mt-3">Explore our curated collection of tales that warm the heart and ignites the mind.</p>
+    <p>{{sectionText}}</p>
     <ng-content select="[section-actions]"></ng-content> <br>
     <ng-content select="[section-body]"></ng-content>
   </div>
