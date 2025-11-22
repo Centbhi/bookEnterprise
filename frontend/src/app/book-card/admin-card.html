@@ -22,7 +22,11 @@
         </p>
 
         <p><strong>Genre: </strong>
-        <input [(ngModel)]="book.genre" name="genre" />
+        <select multiple [(ngModel)]="book.genre" name="genre">
+            <option value="Romance">Romance</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Drama">Drama</option>
+        </select>
         </p>
 
         <p><strong>Publisher: </strong>

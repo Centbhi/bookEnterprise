@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export interface Book {
   id?: number;
   title: string;
-  genre: string;
+  genre: string[];
   status: string;
   datePublished: string;
   author: string;

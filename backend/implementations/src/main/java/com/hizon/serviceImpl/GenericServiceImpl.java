@@ -57,7 +57,6 @@ public abstract class GenericServiceImpl<ModelData,Model> implements GenericServ
             throw new RuntimeException("Failed to set ID to null", e);
         }
 
-
         mapper.map(model,entity);
         ModelData saved = repo.save(entity);
         return mapper.map(saved,Book);

@@ -1,11 +1,13 @@
 package com.hizon.model;
+import java.util.List;
+
 import lombok.Data;
 
 @Data
 public class Book {
     private int id;
     private String title;
-    private String genre;
+    private List<String> genre;
     private String status;
     private String datePublished;
     private String author;

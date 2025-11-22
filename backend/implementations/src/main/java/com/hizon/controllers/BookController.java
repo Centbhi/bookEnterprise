@@ -17,7 +17,7 @@ public class BookController extends GenericController<Book>{
 
     @GetMapping("/genre/{genre}")
     public ResponseEntity<List<Book>> getByGenre(@PathVariable("genre") String genre){
-        return ResponseEntity.ok(service.findByGenre(genre));
+        return ResponseEntity.ok(service.findByGenreContaining(genre));
     }
     
 }

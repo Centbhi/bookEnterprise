@@ -1,6 +1,8 @@
 package com.hizon.entity;
 import lombok.Data;
 import java.util.Date;
+import java.util.List;
+
 import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.*;
 
@@ -13,7 +15,10 @@ public class BookData{
     Integer id;
 
     String title;
-    String genre;
+
+    @ElementCollection
+    List<String> genre; 
+
     String status;
     String datePublished;
     String author;

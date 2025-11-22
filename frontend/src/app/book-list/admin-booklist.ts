@@ -44,7 +44,7 @@ export class AdminBookList implements OnInit{
       rating: 0,
       coverImgUrl: '',
       author: '',
-      genre: '',
+      genre: [],
       datePublished: '',
       description: '',
       publisher: '',

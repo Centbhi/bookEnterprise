@@ -22,8 +22,8 @@ public class BookServiceImpl extends GenericServiceImpl<BookData, Book> implemen
     }
 
     @Override
-    public List<Book> findByGenre (String genre) {
-        return repo.findByGenre(genre).stream()
+    public List<Book> findByGenreContaining (String genre) {
+        return repo.findByGenreContaining(genre).stream()
             .map(bookData -> mapper.map(bookData, Book.class))
             .collect(Collectors.toList());
     }
