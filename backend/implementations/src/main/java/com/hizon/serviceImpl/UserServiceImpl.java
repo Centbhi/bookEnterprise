@@ -50,6 +50,7 @@ public class UserServiceImpl extends GenericServiceImpl<UserData, User> implemen
             if (model.getPassword() != null && !model.getPassword().isEmpty()) {
                 entity.setPassword(passwordEncoder.encode(model.getPassword()));
             }
+
         entity.setId(null);
 
         UserData saved = userRepository.save(entity);

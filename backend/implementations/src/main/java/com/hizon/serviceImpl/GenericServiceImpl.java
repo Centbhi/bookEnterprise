@@ -1,5 +1,4 @@
 package com.hizon.serviceImpl;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
@@ -18,14 +17,6 @@ public abstract class GenericServiceImpl<ModelData,Model> implements GenericServ
     @Override
     public Model create(Model model){
         ModelData entity = mapper.map(model, modelDataClass);
-        try{
-            Field idField = modelDataClass.getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, null);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException("Failed to set ID to null", e);
-        }
-
         ModelData saved = repo.save(entity);
         return mapper.map(saved,Book);
     }
@@ -49,14 +40,6 @@ public abstract class GenericServiceImpl<ModelData,Model> implements GenericServ
 
         ModelData entity = repo.findById(id).orElseThrow(()->
             new RuntimeException(modelDataClass.getSimpleName() + " not found with id: " + id));
-        try {
-            Field idField = modelDataClass.getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException("Failed to set ID to null", e);
-        }
-
         mapper.map(model,entity);
         ModelData saved = repo.save(entity);
         return mapper.map(saved,Book);
